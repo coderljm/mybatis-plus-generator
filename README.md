@@ -63,7 +63,7 @@ public static void main(String[] args) {
         // strategyConfig.setTablePrefix("dd");
         strategyConfig.isEntityTableFieldAnnotationEnable();
         //设置逻辑删除的字段名
-        strategyConfig.setLogicDeleteFieldName("status");
+        strategyConfig.setLogicDeleteFieldName("is_deleted");
         //填充字段配置
         List<TableFill> list = new ArrayList<>();
         list.add(new TableFill("createTime",FieldFill.INSERT));
