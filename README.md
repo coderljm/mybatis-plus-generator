@@ -3,6 +3,8 @@ mybatis-plus  逆向工程，
 
 修改成自己的连接等配置，执行main方法，就会生成我们需要的controller、service、mapper、xml等文件
 
+
+
 public static void main(String[] args) {
         AutoGenerator autoGenerator = new AutoGenerator();
 
@@ -29,7 +31,7 @@ public static void main(String[] args) {
 
         // ======================数据源配置========================
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setDbType(DbType.MYSQL);   //设置数据库类型，我是postgresql
+        dsc.setDbType(DbType.MYSQL);   //设置数据库类型
         dsc.setUrl("jdbc:mysql://localhost:3306/liuke?serverTimezone=GMT%2B8");  //指定数据库
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
