@@ -1,5 +1,5 @@
 # mybatis-plus-generator
-mybatis-plus  逆向工程
+mybatis-plus  逆向工程，
 修改成自己的连接等配置，执行main方法，就会生成我们需要的controller、service、mapper、xml等文件
 public static void main(String[] args) {
         AutoGenerator autoGenerator = new AutoGenerator();
