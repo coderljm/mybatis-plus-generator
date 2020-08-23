@@ -1,19 +1,15 @@
 package com.jianmin.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -50,7 +46,7 @@ public class MybatisPlusGenerator {
         // ======================数据源配置========================
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.MYSQL);   //设置数据库类型，我是postgresql
-        dsc.setUrl("jdbc:mysql://localhost:3306/liuke?serverTimezone=GMT%2B8");  //指定数据库
+        dsc.setUrl("jdbc:mysql://localhost:3306/xiuby?serverTimezone=GMT%2B8");  //指定数据库
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root");
@@ -64,7 +60,7 @@ public class MybatisPlusGenerator {
         //设置生成的表名，这里使用exClude来进行排除，写入null，表示生成所有表。
         //strategyConfig.setExclude(null);
         //设置表    可变个数的形参    String数组
-        strategyConfig.setInclude("student");
+        strategyConfig.setInclude("girl");
         //设置自定义的service层继承代码，这里使用我定义的service和impl来进行继承---Sopp
         //strategyConfig.setSuperServiceClass("com.sopp.sp.util.MyService");
         //strategyConfig.setSuperServiceImplClass("com.sopp.sp.util.MyServiceImpl");
@@ -82,21 +78,23 @@ public class MybatisPlusGenerator {
         strategyConfig.isEntityTableFieldAnnotationEnable();
         //设置逻辑删除的字段名
         strategyConfig.setLogicDeleteFieldName("is_deleted");
+        //移除boolean类型字段的'is'前缀
+        strategyConfig.setEntityBooleanColumnRemoveIsPrefix(true);
         //填充字段配置
-        List<TableFill> list = new ArrayList<>();
-        list.add(new TableFill("createTime",FieldFill.INSERT));
-        list.add(new TableFill("updateTime",FieldFill.INSERT_UPDATE));
-        strategyConfig.setTableFillList(list);
+        // List<TableFill> list = new ArrayList<>();
+        // list.add(new TableFill("createTime",FieldFill.INSERT));
+        // list.add(new TableFill("updateTime",FieldFill.INSERT_UPDATE));
+        // strategyConfig.setTableFillList(list);
         autoGenerator.setStrategy(strategyConfig);
 
         //===============================包配置===============================
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.jianmin");
+        pc.setParent("com.liuke.liukea");
         pc.setController("controller");
         pc.setService("service");
         pc.setServiceImpl("service.impl");
         pc.setMapper("mapper");
-        pc.setEntity("pojo");
+        pc.setEntity("model");
         pc.setXml("xml");
         // pc.setModuleName("util");
         autoGenerator.setPackageInfo(pc);
