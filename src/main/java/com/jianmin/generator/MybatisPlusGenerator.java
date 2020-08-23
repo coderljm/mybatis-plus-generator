@@ -66,7 +66,11 @@ public class MybatisPlusGenerator {
         //strategyConfig.setSuperServiceImplClass("com.sopp.sp.util.MyServiceImpl");
         //生成序列化id
         strategyConfig.setEntitySerialVersionUID(true);
+        //生成表字段产量
         strategyConfig.setEntityColumnConstant(true);
+        //继承公共实体类配置
+        // strategyConfig.setSuperEntityClass(BaseModel.class);
+        // strategyConfig.setSuperEntityColumns("is_deleted");
         strategyConfig.setControllerMappingHyphenStyle(true);//路径加分隔符
         //实体类是否带有lombok风格
         strategyConfig.setEntityLombokModel(true);
@@ -75,7 +79,7 @@ public class MybatisPlusGenerator {
         //允许字段自动注解
         strategyConfig.setEntityTableFieldAnnotationEnable(true);
         // strategyConfig.setTablePrefix("dd");
-        strategyConfig.isEntityTableFieldAnnotationEnable();
+        strategyConfig.setEntityTableFieldAnnotationEnable(true);
         //设置逻辑删除的字段名
         strategyConfig.setLogicDeleteFieldName("is_deleted");
         //移除boolean类型字段的'is'前缀
@@ -89,14 +93,14 @@ public class MybatisPlusGenerator {
 
         //===============================包配置===============================
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.liuke.liukea");
+        pc.setParent("com.liuke");
         pc.setController("controller");
         pc.setService("service");
         pc.setServiceImpl("service.impl");
         pc.setMapper("mapper");
         pc.setEntity("model");
         pc.setXml("xml");
-        // pc.setModuleName("util");
+        pc.setModuleName("liukea");
         autoGenerator.setPackageInfo(pc);
 
         //不加这个会报空指针异常
