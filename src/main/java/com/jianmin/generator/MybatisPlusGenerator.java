@@ -46,7 +46,7 @@ public class MybatisPlusGenerator {
         // ======================数据源配置========================
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.MYSQL);   //设置数据库类型，我是postgresql
-        dsc.setUrl("jdbc:mysql://localhost:3306/liuke?serverTimezone=GMT%2B8");  //指定数据库
+        dsc.setUrl("jdbc:mysql://localhost:3306/ds0?serverTimezone=GMT%2B8");  //指定数据库
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root");
@@ -92,7 +92,7 @@ public class MybatisPlusGenerator {
 
         //===============================包配置===============================
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.liuke.liukeb");
+        pc.setParent("com.sharding.demo");
         pc.setController("controller");
         pc.setService("service");
         pc.setServiceImpl("service.impl");
